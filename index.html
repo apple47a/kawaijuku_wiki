@@ -64,7 +64,7 @@
     <!-- ヘッダー部分 -->
     <div class="flex justify-between items-end border-b-2 border-gray-400 pb-2 mb-4">
         <h1 class="text-2xl font-bold text-blue-700">P2河合塾wiki</h1>
-        <div class="text-sm text-gray-600">講師、校舎、季節講習、テキストなど、様々な情報を募集してます</div>
+        <div class="text-sm text-gray-600">講師、季節講習、校舎、テキストなど、様々な情報を募集しています</div>
     </div>
 
     <!-- 全体レイアウト（3カラム） -->
@@ -99,7 +99,7 @@
                 <!-- 画像のダミー枠 -->
                 <div class="my-4 text-center bg-blue-100 p-20 border border-blue-200 text-gray-500">
                     [ ここに架空の校舎画像が入ります ]<br>
-                    <span class="text-sm">校舎外観（撮影：架空の生徒）</span>
+                    <span class="text-sm">校舎外観（撮影：あんパス）</span>
                 </div>
 
                 <h2 class="mt-6">基本情報</h2>
@@ -155,10 +155,10 @@
         <div class="w-full md:w-1/5 shrink-0">
             <!-- 閲覧者数 -->
             <div class="sidebar-box text-center">
-                <span class="text-xs">現在の閲覧者数</span> <span class="font-bold text-lg">05</span> <span class="text-xs">人</span>
+                <span class="text-xs">現在の閲覧者数</span> <span id="current-viewers" class="font-bold text-lg">--</span> <span class="text-xs">人</span>
             </div>
             <div class="sidebar-box text-center mt-2">
-                <span class="text-xs">総閲覧者数</span> <span class="font-bold text-lg">340491</span>
+                <span class="text-xs">総閲覧者数</span> <span id="total-viewers" class="font-bold text-lg">------</span>
             </div>
             
             <!-- 最近の更新 -->
@@ -184,5 +184,20 @@
         </div>
 
     </div>
+
+    <!-- ランダムな数字を生成するJavaScript -->
+    <script>
+        window.onload = function() {
+            // 現在の閲覧者数を1〜12の間でランダムに生成
+            let current = Math.floor(Math.random() * 12) + 1;
+            // 1桁の場合は「05」のように先頭に0をつける
+            let currentStr = current.toString().padStart(2, '0');
+            document.getElementById('current-viewers').innerText = currentStr;
+
+            // 総閲覧者数を340,000〜349,999の間でランダムに生成
+            let total = Math.floor(Math.random() * 10000) + 340000;
+            document.getElementById('total-viewers').innerText = total;
+        };
+    </script>
 </body>
 </html>
